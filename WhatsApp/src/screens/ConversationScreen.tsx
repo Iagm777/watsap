@@ -21,6 +21,10 @@ import {
   MenuVerticalIcon,
   SingleCheckIcon,
   DoubleCheckIcon,
+  ClipIcon,
+  CameraIconNew,
+  MicrophoneInputIcon,
+  StickersIcon,
 } from '../assets/icons/IconComponents';
 
 interface ConversationScreenProps {
@@ -144,9 +148,6 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
         {/* Input de mensaje */}
         <View style={styles.inputContainer}>
           <View style={styles.inputWrapper}>
-            <TouchableOpacity style={styles.attachButton} activeOpacity={0.7}>
-              <AttachIcon size={24} color="#888888" />
-            </TouchableOpacity>
             <TextInput
               style={styles.input}
               placeholder="Escribe un mensaje..."
@@ -166,8 +167,21 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
               {hasText ? (
                 <SendIcon size={24} color="#FFFFFF" />
               ) : (
-                <MicrophoneMessageIcon size={24} color="#888888" />
+                <MicrophoneInputIcon size={24} color="#31a24c" />
               )}
+            </TouchableOpacity>
+          </View>
+          
+          {/* Barra de herramientas - Botones adicionales */}
+          <View style={styles.toolbarContainer}>
+            <TouchableOpacity style={styles.toolbarButton} activeOpacity={0.7}>
+              <ClipIcon size={24} color="#888888" />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.toolbarButton} activeOpacity={0.7}>
+              <CameraIconNew size={24} color="#888888" />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.toolbarButton} activeOpacity={0.7}>
+              <StickersIcon size={24} color="#888888" />
             </TouchableOpacity>
           </View>
         </View>
@@ -287,17 +301,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#0A0A0A',
     borderTopWidth: 1,
     borderTopColor: '#2A2A2A',
-    paddingHorizontal: 8,
+    paddingHorizontal: 12,
     paddingVertical: 8,
     paddingBottom: Platform.OS === 'ios' ? 24 : 8,
   },
   inputWrapper: {
     flexDirection: 'row',
     alignItems: 'flex-end',
-    backgroundColor: '#2A2A2A',
+    backgroundColor: '#1A1A1A',
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
     borderRadius: 24,
-    paddingHorizontal: 8,
+    paddingHorizontal: 16,
     minHeight: 40,
+    marginBottom: 8,
   },
   attachButton: {
     padding: 8,
@@ -323,10 +340,24 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     width: 36,
     height: 36,
-    marginRight: 4,
+    marginLeft: 8,
   },
   sendButtonDisabled: {
     opacity: 0.6,
+  },
+  toolbarContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: '#0A0A0A',
+    paddingVertical: 8,
+    borderTopWidth: 1,
+    borderTopColor: '#2A2A2A',
+  },
+  toolbarButton: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 8,
   },
   sendIcon: {
     fontSize: 20,
