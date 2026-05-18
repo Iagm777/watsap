@@ -25,6 +25,10 @@ import {
   CameraIconNew,
   MicrophoneInputIcon,
   StickersIcon,
+  BackArrowIcon,
+  VideoCallIconNew,
+  PhoneCallIcon,
+  MenuDotsIcon,
 } from '../assets/icons/IconComponents';
 
 interface ConversationScreenProps {
@@ -78,6 +82,16 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
     <SafeAreaView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
+        {/* Flecha hacia atrás - Izquierda */}
+        <TouchableOpacity 
+          style={styles.backButton}
+          onPress={onContactPress}
+          activeOpacity={0.7}
+        >
+          <BackArrowIcon size={24} color="#FFFFFF" />
+        </TouchableOpacity>
+
+        {/* Información del contacto - Centro */}
         <TouchableOpacity 
           style={styles.headerContentTouchable}
           onPress={onContactPress}
@@ -93,13 +107,29 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity 
-          onPress={onMenuPress}
-          activeOpacity={0.7}
-          style={styles.menuButton}
-        >
-          <MenuVerticalIcon size={24} color="#333333" />
-        </TouchableOpacity>
+
+        {/* Iconos de acciones - Derecha */}
+        <View style={styles.headerActions}>
+          <TouchableOpacity 
+            style={styles.actionButton}
+            activeOpacity={0.7}
+          >
+            <VideoCallIconNew size={24} color="#FFFFFF" />
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={styles.actionButton}
+            activeOpacity={0.7}
+          >
+            <PhoneCallIcon size={24} color="#FFFFFF" />
+          </TouchableOpacity>
+          <TouchableOpacity 
+            onPress={onMenuPress}
+            activeOpacity={0.7}
+            style={styles.menuButton}
+          >
+            <MenuDotsIcon size={24} color="#FFFFFF" />
+          </TouchableOpacity>
+        </View>
       </View>
 
       <KeyboardAvoidingView
@@ -205,19 +235,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 12,
+    paddingHorizontal: 8,
     paddingVertical: 8,
     borderBottomWidth: 1,
     borderBottomColor: '#2A2A2A',
     minHeight: 56,
     backgroundColor: '#1A1A1A',
   },
+  backButton: {
+    padding: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   headerContentTouchable: {
     flex: 1,
-    paddingRight: 8,
+    paddingHorizontal: 8,
   },
   headerContent: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -238,14 +272,25 @@ const styles = StyleSheet.create({
     color: '#888888',
     marginTop: 2,
   },
+  headerActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+  },
+  actionButton: {
+    padding: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  menuButton: {
+    padding: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   menuIcon: {
     fontSize: 20,
     color: '#FFFFFF',
     paddingLeft: 8,
-  },
-  menuButton: {
-    padding: 8,
-    paddingRight: 0,
   },
   keyboardAvoidingView: {
     flex: 1,

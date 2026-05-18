@@ -296,6 +296,46 @@ export const StickersIcon: React.FC<IconProps> = ({ size = 24, color = '#888888'
   </View>
 );
 
+// Icono de Flecha hacia atrás (Back Arrow)
+export const BackArrowIcon: React.FC<IconProps> = ({ size = 24, color = '#FFFFFF' }) => (
+  <View style={[styles.iconContainer, { width: size, height: size }]}>
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M19 12H5"/>
+      <path d="M12 19l-7-7 7-7"/>
+    </svg>
+  </View>
+);
+
+// Icono de Videollamada
+export const VideoCallIconNew: React.FC<IconProps> = ({ size = 24, color = '#FFFFFF' }) => (
+  <View style={[styles.iconContainer, { width: size, height: size }]}>
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="6" width="15" height="12" rx="2"/>
+      <path d="M17 10l5-3v10l-5-3z"/>
+    </svg>
+  </View>
+);
+
+// Icono de Llamada telefónica
+export const PhoneCallIcon: React.FC<IconProps> = ({ size = 24, color = '#FFFFFF' }) => (
+  <View style={[styles.iconContainer, { width: size, height: size }]}>
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67 A2 2 0 0 1 4.11 2h3 a2 2 0 0 1 2 1.72 c.12.89.33 1.76.63 2.59 a2 2 0 0 1-.45 2.11L8.09 9.91 a16 16 0 0 0 6 6 l1.49-1.2 a2 2 0 0 1 2.11-.45 c.83.3 1.7.51 2.59.63 A2 2 0 0 1 22 16.92z"/>
+    </svg>
+  </View>
+);
+
+// Icono de Menú Vertical (3 puntos)
+export const MenuDotsIcon: React.FC<IconProps> = ({ size = 24, color = '#FFFFFF' }) => (
+  <View style={[styles.iconContainer, { width: size, height: size }]}>
+    <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
+      <circle cx="12" cy="5" r="2"/>
+      <circle cx="12" cy="12" r="2"/>
+      <circle cx="12" cy="19" r="2"/>
+    </svg>
+  </View>
+);
+
 const styles = StyleSheet.create({
   iconContainer: {
     justifyContent: 'center',
