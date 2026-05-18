@@ -327,6 +327,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 6,
+    gap: 4,
   },
   messageSent: {
     backgroundColor: '#154434',
@@ -342,7 +343,7 @@ const styles = StyleSheet.create({
   },
   messageTextShort: {
     marginBottom: 0,
-    marginRight: 6,
+    lineHeight: 16,
   },
   messageFooter: {
     flexDirection: 'row',
@@ -350,11 +351,14 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   messageFooterShort: {
-    marginLeft: 4,
+    marginLeft: 0,
+    alignItems: 'center',
+    gap: 3,
   },
   messageTime: {
     fontSize: 12,
     color: '#AAAAAA',
+    lineHeight: 14,
   },
   checkContainer: {
     marginLeft: 6,
