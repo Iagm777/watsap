@@ -318,10 +318,10 @@ const styles = StyleSheet.create({
     maxWidth: '85%',
   },
   messageSent: {
-    backgroundColor: '#31a24c',
+    backgroundColor: '#154434',
   },
   messageReceived: {
-    backgroundColor: '#2A2A2A',
+    backgroundColor: '#171D22',
   },
   messageText: {
     fontSize: 15,
