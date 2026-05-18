@@ -147,15 +147,15 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
 
         {/* Input de mensaje */}
         <View style={styles.inputContainer}>
-          {/* Botones Clip y Cámara - Fuera del input */}
+          {/* Botones Clip y Emoji - Fuera del input */}
           <TouchableOpacity style={styles.clipButton} activeOpacity={0.7}>
             <ClipIcon size={24} color="#888888" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.cameraButton} activeOpacity={0.7}>
-            <CameraIconNew size={24} color="#888888" />
+            <StickersIcon size={24} color="#888888" />
           </TouchableOpacity>
 
-          {/* Input wrapper con stickers dentro */}
+          {/* Input wrapper con cámara dentro */}
           <View style={styles.inputWrapper}>
             <TextInput
               style={styles.input}
@@ -167,9 +167,9 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
               maxLength={1000}
               selectionColor="#31a24c"
             />
-            {/* Stickers dentro del input */}
+            {/* Cámara dentro del input */}
             <TouchableOpacity style={styles.stickersInsideButton} activeOpacity={0.7}>
-              <StickersIcon size={24} color="#888888" />
+              <CameraIconNew size={24} color="#888888" />
             </TouchableOpacity>
           </View>
 
