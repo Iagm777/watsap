@@ -148,6 +148,18 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
         {/* Input de mensaje */}
         <View style={styles.inputContainer}>
           <View style={styles.inputWrapper}>
+            {/* Botones laterales - Clip, Cámara, Stickers */}
+            <TouchableOpacity style={styles.sideButton} activeOpacity={0.7}>
+              <ClipIcon size={24} color="#888888" />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.sideButton} activeOpacity={0.7}>
+              <CameraIconNew size={24} color="#888888" />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.sideButton} activeOpacity={0.7}>
+              <StickersIcon size={24} color="#888888" />
+            </TouchableOpacity>
+
+            {/* Input de texto */}
             <TextInput
               style={styles.input}
               placeholder="Escribe un mensaje..."
@@ -158,6 +170,8 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
               maxLength={1000}
               selectionColor="#31a24c"
             />
+
+            {/* Botón enviar/micrófono */}
             <TouchableOpacity
               style={[styles.sendButton, !hasText && styles.sendButtonDisabled]}
               onPress={handleSendMessage}
@@ -169,19 +183,6 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
               ) : (
                 <MicrophoneInputIcon size={24} color="#31a24c" />
               )}
-            </TouchableOpacity>
-          </View>
-          
-          {/* Barra de herramientas - Botones adicionales */}
-          <View style={styles.toolbarContainer}>
-            <TouchableOpacity style={styles.toolbarButton} activeOpacity={0.7}>
-              <ClipIcon size={24} color="#888888" />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.toolbarButton} activeOpacity={0.7}>
-              <CameraIconNew size={24} color="#888888" />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.toolbarButton} activeOpacity={0.7}>
-              <StickersIcon size={24} color="#888888" />
             </TouchableOpacity>
           </View>
         </View>
@@ -301,20 +302,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#0A0A0A',
     borderTopWidth: 1,
     borderTopColor: '#2A2A2A',
-    paddingHorizontal: 12,
+    paddingHorizontal: 8,
     paddingVertical: 8,
     paddingBottom: Platform.OS === 'ios' ? 24 : 8,
   },
   inputWrapper: {
     flexDirection: 'row',
-    alignItems: 'flex-end',
-    backgroundColor: '#1A1A1A',
-    borderWidth: 1,
-    borderColor: '#2A2A2A',
-    borderRadius: 24,
-    paddingHorizontal: 16,
-    minHeight: 40,
-    marginBottom: 8,
+    alignItems: 'center',
+    backgroundColor: '#0A0A0A',
+    paddingHorizontal: 4,
+    minHeight: 48,
+    gap: 4,
+  },
+  sideButton: {
+    padding: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
   },
   attachButton: {
     padding: 8,
@@ -328,9 +332,14 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 15,
     color: '#FFFFFF',
-    paddingHorizontal: 8,
+    paddingHorizontal: 12,
     paddingVertical: 10,
+    backgroundColor: '#1A1A1A',
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
+    borderRadius: 24,
     maxHeight: 100,
+    minHeight: 40,
   },
   sendButton: {
     padding: 8,
@@ -338,20 +347,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#31a24c',
     borderRadius: 20,
-    width: 36,
-    height: 36,
-    marginLeft: 8,
+    width: 40,
+    height: 40,
   },
   sendButtonDisabled: {
     opacity: 0.6,
   },
   toolbarContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    backgroundColor: '#0A0A0A',
-    paddingVertical: 8,
-    borderTopWidth: 1,
-    borderTopColor: '#2A2A2A',
+    display: 'none',
   },
   toolbarButton: {
     flex: 1,
