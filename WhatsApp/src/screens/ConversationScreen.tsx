@@ -99,7 +99,7 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
           activeOpacity={0.7}
         >
           <View style={styles.headerContent}>
-            <AvatarProfile size={48} />
+            <AvatarProfile size={40} />
             <View style={styles.headerInfo}>
               <Text style={styles.headerTitle}>{displayContact.name}</Text>
               <Text style={styles.headerSubtitle}>
