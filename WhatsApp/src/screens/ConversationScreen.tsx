@@ -147,19 +147,16 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
 
         {/* Input de mensaje */}
         <View style={styles.inputContainer}>
-          <View style={styles.inputWrapper}>
-            {/* Botones laterales - Clip, Cámara, Stickers */}
-            <TouchableOpacity style={styles.sideButton} activeOpacity={0.7}>
-              <ClipIcon size={24} color="#888888" />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.sideButton} activeOpacity={0.7}>
-              <CameraIconNew size={24} color="#888888" />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.sideButton} activeOpacity={0.7}>
-              <StickersIcon size={24} color="#888888" />
-            </TouchableOpacity>
+          {/* Botones Clip y Cámara - Fuera del input */}
+          <TouchableOpacity style={styles.clipButton} activeOpacity={0.7}>
+            <ClipIcon size={24} color="#888888" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.cameraButton} activeOpacity={0.7}>
+            <CameraIconNew size={24} color="#888888" />
+          </TouchableOpacity>
 
-            {/* Input de texto */}
+          {/* Input wrapper con stickers dentro */}
+          <View style={styles.inputWrapper}>
             <TextInput
               style={styles.input}
               placeholder="Escribe un mensaje..."
@@ -170,21 +167,25 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
               maxLength={1000}
               selectionColor="#31a24c"
             />
-
-            {/* Botón enviar/micrófono */}
-            <TouchableOpacity
-              style={[styles.sendButton, !hasText && styles.sendButtonDisabled]}
-              onPress={handleSendMessage}
-              disabled={!hasText}
-              activeOpacity={0.7}
-            >
-              {hasText ? (
-                <SendIcon size={24} color="#FFFFFF" />
-              ) : (
-                <MicrophoneInputIcon size={24} color="#31a24c" />
-              )}
+            {/* Stickers dentro del input */}
+            <TouchableOpacity style={styles.stickersInsideButton} activeOpacity={0.7}>
+              <StickersIcon size={24} color="#888888" />
             </TouchableOpacity>
           </View>
+
+          {/* Botón Micrófono/Enviar - Redondo grande */}
+          <TouchableOpacity
+            style={[styles.microphoneButton, !hasText && styles.microphoneButtonInactive]}
+            onPress={handleSendMessage}
+            disabled={!hasText}
+            activeOpacity={0.7}
+          >
+            {hasText ? (
+              <SendIcon size={28} color="#FFFFFF" />
+            ) : (
+              <MicrophoneInputIcon size={28} color="#FFFFFF" />
+            )}
+          </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -305,14 +306,42 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 8,
     paddingBottom: Platform.OS === 'ios' ? 24 : 8,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    gap: 8,
+  },
+  clipButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+  },
+  cameraButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
   },
   inputWrapper: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#0A0A0A',
-    paddingHorizontal: 4,
-    minHeight: 48,
-    gap: 4,
+    backgroundColor: '#1A1A1A',
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
+    borderRadius: 24,
+    paddingHorizontal: 12,
+    minHeight: 40,
+    gap: 8,
+  },
+  stickersInsideButton: {
+    padding: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   sideButton: {
     padding: 8,
@@ -332,14 +361,21 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 15,
     color: '#FFFFFF',
-    paddingHorizontal: 12,
     paddingVertical: 10,
-    backgroundColor: '#1A1A1A',
-    borderWidth: 1,
-    borderColor: '#2A2A2A',
-    borderRadius: 24,
     maxHeight: 100,
     minHeight: 40,
+  },
+  microphoneButton: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: '#31a24c',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  microphoneButtonInactive: {
+    backgroundColor: '#31a24c',
+    opacity: 0.6,
   },
   sendButton: {
     padding: 8,
@@ -347,8 +383,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#31a24c',
     borderRadius: 20,
-    width: 40,
-    height: 40,
+    width: 36,
+    height: 36,
   },
   sendButtonDisabled: {
     opacity: 0.6,
