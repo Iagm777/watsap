@@ -102,7 +102,7 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
             <View style={styles.headerInfo}>
               <Text style={styles.headerTitle}>{displayContact.name}</Text>
               <Text style={styles.headerSubtitle}>
-                {displayContact.isOnline ? '🟢 en línea' : `🔘 ${displayContact.lastSeen}`}
+                {displayContact.isOnline ? 'en línea' : displayContact.lastSeen}
               </Text>
             </View>
           </View>
