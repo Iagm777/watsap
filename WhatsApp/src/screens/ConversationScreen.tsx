@@ -165,9 +165,9 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
                     {item.type === 'sent' && (
                       <View style={styles.checkContainer}>
                         {item.status === 'read' ? (
-                          <DoubleCheckIcon size={18} />
+                          <DoubleCheckIcon size={13} />
                         ) : (
-                          <SingleCheckIcon size={16} color="#888888" />
+                          <SingleCheckIcon size={12} color="#888888" />
                         )}
                       </View>
                     )}
@@ -356,7 +356,7 @@ const styles = StyleSheet.create({
     gap: 3,
   },
   messageTime: {
-    fontSize: 12,
+    fontSize: 10,
     color: '#AAAAAA',
     lineHeight: 14,
   },
