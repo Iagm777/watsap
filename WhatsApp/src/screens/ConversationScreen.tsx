@@ -147,16 +147,14 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
 
         {/* Input de mensaje */}
         <View style={styles.inputContainer}>
-          {/* Botones Clip y Emoji - Fuera del input */}
-          <TouchableOpacity style={styles.clipButton} activeOpacity={0.7}>
-            <ClipIcon size={24} color="#888888" />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.cameraButton} activeOpacity={0.7}>
-            <StickersIcon size={24} color="#888888" />
-          </TouchableOpacity>
-
-          {/* Input wrapper con cámara dentro */}
+          {/* Input wrapper con emoji, clip y cámara dentro */}
           <View style={styles.inputWrapper}>
+            {/* Emoji a la izquierda */}
+            <TouchableOpacity style={styles.emojiInsideButton} activeOpacity={0.7}>
+              <StickersIcon size={24} color="#888888" />
+            </TouchableOpacity>
+
+            {/* Input de texto */}
             <TextInput
               style={styles.input}
               placeholder="Escribe un mensaje..."
@@ -167,7 +165,13 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
               maxLength={1000}
               selectionColor="#31a24c"
             />
-            {/* Cámara dentro del input */}
+
+            {/* Clip a la derecha, antes de cámara */}
+            <TouchableOpacity style={styles.clipInsideButton} activeOpacity={0.7}>
+              <ClipIcon size={24} color="#888888" />
+            </TouchableOpacity>
+
+            {/* Cámara a la derecha */}
             <TouchableOpacity style={styles.stickersInsideButton} activeOpacity={0.7}>
               <CameraIconNew size={24} color="#888888" />
             </TouchableOpacity>
@@ -311,20 +315,10 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   clipButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'transparent',
+    display: 'none',
   },
   cameraButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'transparent',
+    display: 'none',
   },
   inputWrapper: {
     flex: 1,
@@ -337,6 +331,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     minHeight: 40,
     gap: 8,
+  },
+  emojiInsideButton: {
+    padding: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  clipInsideButton: {
+    padding: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   stickersInsideButton: {
     padding: 6,
