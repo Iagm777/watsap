@@ -30,6 +30,7 @@ import {
   PhoneCallIcon,
   MenuDotsIcon,
 } from '../assets/icons/IconComponents';
+import { AvatarProfile } from '../assets/icons/AvatarProfile';
 
 interface ConversationScreenProps {
   contact: Contact | null;
@@ -98,7 +99,7 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
           activeOpacity={0.7}
         >
           <View style={styles.headerContent}>
-            <Text style={styles.avatar}>{displayContact.photo}</Text>
+            <AvatarProfile size={48} />
             <View style={styles.headerInfo}>
               <Text style={styles.headerTitle}>{displayContact.name}</Text>
               <Text style={styles.headerSubtitle}>
@@ -254,10 +255,7 @@ const styles = StyleSheet.create({
   headerContent: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  avatar: {
-    fontSize: 40,
-    marginRight: 12,
+    gap: 12,
   },
   headerInfo: {
     flex: 1,
