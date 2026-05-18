@@ -77,23 +77,27 @@ export const addMessageToChat = (
 };
 
 /**
- * Formatea la hora actual en formato HH:MM
+ * Formatea la hora actual en formato HH:MM p.m./a.m.
  */
 export const getCurrentTime = (): string => {
   const now = new Date();
-  const hours = String(now.getHours()).padStart(2, '0');
+  const hours = now.getHours();
   const minutes = String(now.getMinutes()).padStart(2, '0');
-  return `${hours}:${minutes}`;
+  const period = hours >= 12 ? 'p.m.' : 'a.m.';
+  const displayHours = String(hours % 12 || 12).padStart(2, '0');
+  return `${displayHours}:${minutes} ${period}`;
 };
 
 /**
- * Formatea una timestamp a formato de hora (HH:MM)
+ * Formatea una timestamp a formato de hora (HH:MM p.m./a.m.)
  */
 export const formatTime = (timestamp: number): string => {
   const date = new Date(timestamp);
-  const hours = String(date.getHours()).padStart(2, '0');
+  const hours = date.getHours();
   const minutes = String(date.getMinutes()).padStart(2, '0');
-  return `${hours}:${minutes}`;
+  const period = hours >= 12 ? 'p.m.' : 'a.m.';
+  const displayHours = String(hours % 12 || 12).padStart(2, '0');
+  return `${displayHours}:${minutes} ${period}`;
 };
 
 /**
