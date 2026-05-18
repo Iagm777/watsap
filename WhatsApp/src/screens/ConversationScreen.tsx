@@ -141,35 +141,41 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
         <FlatList
           ref={flatListRef}
           data={messages}
-          renderItem={({ item }) => (
-            <View
-              style={[
-                styles.messageRow,
-                item.type === 'sent' ? styles.sentRow : styles.receivedRow,
-              ]}
-            >
+          renderItem={({ item }) => {
+            const isShortMessage = item.text.length < 50 && !item.text.includes('\n');
+            return (
               <View
                 style={[
-                  styles.messageBubble,
-                  item.type === 'sent' ? styles.messageSent : styles.messageReceived,
+                  styles.messageRow,
+                  item.type === 'sent' ? styles.sentRow : styles.receivedRow,
                 ]}
               >
-                <Text style={styles.messageText}>{item.text}</Text>
-                <View style={styles.messageFooter}>
-                  <Text style={styles.messageTime}>{item.time}</Text>
-                  {item.type === 'sent' && (
-                    <View style={styles.checkContainer}>
-                      {item.status === 'read' ? (
-                        <DoubleCheckIcon size={18} />
-                      ) : (
-                        <SingleCheckIcon size={16} color="#888888" />
-                      )}
-                    </View>
-                  )}
+                <View
+                  style={[
+                    styles.messageBubble,
+                    isShortMessage && styles.messageBubbleShort,
+                    item.type === 'sent' ? styles.messageSent : styles.messageReceived,
+                  ]}
+                >
+                  <Text style={[styles.messageText, isShortMessage && styles.messageTextShort]}>
+                    {item.text}
+                  </Text>
+                  <View style={[styles.messageFooter, isShortMessage && styles.messageFooterShort]}>
+                    <Text style={styles.messageTime}>{item.time}</Text>
+                    {item.type === 'sent' && (
+                      <View style={styles.checkContainer}>
+                        {item.status === 'read' ? (
+                          <DoubleCheckIcon size={18} />
+                        ) : (
+                          <SingleCheckIcon size={16} color="#888888" />
+                        )}
+                      </View>
+                    )}
+                  </View>
                 </View>
               </View>
-            </View>
-          )}
+            );
+          }}
           keyExtractor={(item) => item.id.toString()}
           contentContainerStyle={styles.messagesList}
           scrollEventThrottle={16}
@@ -317,6 +323,11 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     maxWidth: '85%',
   },
+  messageBubbleShort: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 6,
+  },
   messageSent: {
     backgroundColor: '#154434',
   },
@@ -329,10 +340,17 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     marginBottom: 4,
   },
+  messageTextShort: {
+    marginBottom: 0,
+    marginRight: 6,
+  },
   messageFooter: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
+  },
+  messageFooterShort: {
+    marginLeft: 4,
   },
   messageTime: {
     fontSize: 12,
