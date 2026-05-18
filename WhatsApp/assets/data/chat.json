@@ -1,0 +1,94 @@
+{
+  "contact": {
+    "id": "maria-001",
+    "name": "María García",
+    "phone": "+34 600 123 456",
+    "photo": "👩‍🎨",
+    "status": "en línea",
+    "description": "Designer - Disponible 🎨",
+    "isOnline": true,
+    "lastSeen": "hace 2 minutos"
+  },
+  "messages": [
+    {
+      "id": 1,
+      "text": "¡Hola! ¿Cómo estás?",
+      "type": "received",
+      "time": "9:30",
+      "timestamp": 1684756200000,
+      "status": "delivered"
+    },
+    {
+      "id": 2,
+      "text": "Muy bien, ¿y tú?",
+      "type": "sent",
+      "time": "9:31",
+      "timestamp": 1684756260000,
+      "status": "read"
+    },
+    {
+      "id": 3,
+      "text": "Excelente 😊 Quería preguntarte si terminaste el diseño del proyecto",
+      "type": "received",
+      "time": "9:32",
+      "timestamp": 1684756320000,
+      "status": "delivered"
+    },
+    {
+      "id": 4,
+      "text": "Sí, ya lo terminé. Te lo envío en un momento",
+      "type": "sent",
+      "time": "9:33",
+      "timestamp": 1684756380000,
+      "status": "read"
+    },
+    {
+      "id": 5,
+      "text": "Perfecto, muchas gracias! 🙏",
+      "type": "received",
+      "time": "9:34",
+      "timestamp": 1684756440000,
+      "status": "delivered"
+    },
+    {
+      "id": 6,
+      "text": "¿A qué hora nos juntamos mañana?",
+      "type": "received",
+      "time": "9:35",
+      "timestamp": 1684756500000,
+      "status": "delivered"
+    },
+    {
+      "id": 7,
+      "text": "Podemos encontrarnos a las 3 de la tarde en la cafetería de siempre",
+      "type": "sent",
+      "time": "9:36",
+      "timestamp": 1684756560000,
+      "status": "read"
+    },
+    {
+      "id": 8,
+      "text": "Perfecto! ¿Nos vemos a las 3? ☕",
+      "type": "received",
+      "time": "9:37",
+      "timestamp": 1684756620000,
+      "status": "delivered"
+    },
+    {
+      "id": 9,
+      "text": "Dale, nos vemos!",
+      "type": "sent",
+      "time": "9:38",
+      "timestamp": 1684756680000,
+      "status": "read"
+    },
+    {
+      "id": 10,
+      "text": "¡Chao! 👋",
+      "type": "received",
+      "time": "9:39",
+      "timestamp": 1684756740000,
+      "status": "delivered"
+    }
+  ]
+}
