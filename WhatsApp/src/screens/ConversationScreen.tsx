@@ -157,7 +157,7 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
             {/* Input de texto */}
             <TextInput
               style={styles.input}
-              placeholder="Escribe un mensaje..."
+              placeholder="Mensaje"
               placeholderTextColor="#666666"
               value={input}
               onChangeText={handleInputChange}
