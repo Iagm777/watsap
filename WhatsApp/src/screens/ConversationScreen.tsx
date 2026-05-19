@@ -463,11 +463,12 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    fontSize: 15,
+    fontSize: 17,
     color: '#FFFFFF',
-    paddingVertical: 10,
+    paddingVertical: 8,
     maxHeight: 100,
     minHeight: 40,
+    textAlignVertical: 'center',
   },
   microphoneButton: {
     width: 50,
