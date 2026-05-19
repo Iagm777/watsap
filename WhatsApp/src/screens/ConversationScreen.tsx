@@ -157,6 +157,14 @@ export const ConversationScreen: React.FC<ConversationScreenProps> = ({
                     item.type === 'sent' ? styles.messageSent : styles.messageReceived,
                   ]}
                 >
+                  {isShortMessage && (
+                    <View
+                      style={[
+                        styles.messagePointer,
+                        item.type === 'sent' ? styles.pointerSent : styles.pointerReceived,
+                      ]}
+                    />
+                  )}
                   <Text style={[styles.messageText, isShortMessage && styles.messageTextShort]}>
                     {item.text}
                   </Text>
@@ -322,6 +330,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
     maxWidth: '85%',
+    position: 'relative',
   },
   messageBubbleShort: {
     flexDirection: 'row',
@@ -362,6 +371,32 @@ const styles = StyleSheet.create({
   },
   checkContainer: {
     marginLeft: 6,
+  },
+  messagePointer: {
+    position: 'absolute',
+    width: 0,
+    height: 0,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
+    top: -1,
+  },
+  pointerSent: {
+    borderLeftWidth: 8,
+    borderRightWidth: 0,
+    borderBottomWidth: 8,
+    borderLeftColor: 'transparent',
+    borderRightColor: 'transparent',
+    borderBottomColor: '#154434',
+    right: 8,
+  },
+  pointerReceived: {
+    borderLeftWidth: 0,
+    borderRightWidth: 8,
+    borderBottomWidth: 8,
+    borderLeftColor: 'transparent',
+    borderRightColor: 'transparent',
+    borderBottomColor: '#171D22',
+    left: 8,
   },
   statusIcon: {
     fontSize: 11,
