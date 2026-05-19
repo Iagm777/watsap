@@ -325,7 +325,7 @@ const styles = StyleSheet.create({
   },
   messageBubbleShort: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     paddingVertical: 6,
     gap: 4,
   },
@@ -342,7 +342,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   messageTextShort: {
-    marginBottom: 0,
+    marginBottom: 2,
     lineHeight: 16,
   },
   messageFooter: {
@@ -352,7 +352,7 @@ const styles = StyleSheet.create({
   },
   messageFooterShort: {
     marginLeft: 0,
-    alignItems: 'center',
+    alignItems: 'flex-end',
     gap: 3,
   },
   messageTime: {
